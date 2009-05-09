@@ -16,7 +16,7 @@ class deleteStaleMailsTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = 'amaranto';
+    $this->namespace        = 'mail';
     $this->name             = 'delete-stale-mails';
     $this->briefDescription = 'deletes stale emails from the queue';
     $this->detailedDescription = <<<EOF

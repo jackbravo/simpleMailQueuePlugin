@@ -15,7 +15,7 @@ class sendMailsTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = 'amaranto';
+    $this->namespace        = 'mail';
     $this->name             = 'send-mails';
     $this->briefDescription = 'Sends emails in the queue';
     $this->detailedDescription = <<<EOF
@@ -32,7 +32,7 @@ EOF;
     $databaseManager = new sfDatabaseManager($this->configuration);
     $connection = $databaseManager->getDatabase($options['connection'] ? $options['connection'] : null)->getConnection();
 
-    ProjectConfiguration::setupMailer();
+    simpleMailQueuePluginConfiguration::setupMailer();
     $queue_table = Doctrine::getTable('MailQueue');
     $queue = $queue_table->getPending($arguments['limit']);
 
